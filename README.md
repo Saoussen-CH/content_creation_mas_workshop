@@ -25,56 +25,6 @@ An intelligent, multi-agent content creation system powered by Google's Gemini m
 
 **🎯 New to this project?** Check out [**GETTING_STARTED.md**](GETTING_STARTED.md) for complete step-by-step instructions with 4 test prompts!
 
-### Choose Your Deployment Path
-
-#### Option 1: 🏠 Local Development (5 minutes)
-**Best for:** Quick testing, workshops, development
-**Requirements:** Python 3.11.13, Google API key
-**Cost:** Free (API usage only)
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure (see Prerequisites below)
-# Create .env with GOOGLE_API_KEY and GOOGLE_GENAI_USE_VERTEXAI=0
-
-# Run agent
-python run_agent.py
-```
-
-#### Option 2: ☁️ Cloud Deployment (40 minutes)
-**Best for:** Production, public access, scalability
-**Requirements:** GCP project, gcloud CLI
-**Cost:** Cloud Run + Agent Engine
-
-```bash
-# 1. Setup GCP
-cd deployment && ./setup_gcp.sh
-
-# 2. Configure .env (see Prerequisites below)
-
-# 3. Deploy agent to Agent Engine
-python deployment/deploy.py --action deploy
-
-# 4. Deploy to Cloud Run
-./deploy-combined.sh
-```
-
-#### Option 3: 🔄 Hybrid (20 minutes)
-**Best for:** Testing with production agent
-**Requirements:** Agent Engine deployed, local backend
-**Cost:** Agent Engine only
-
-```bash
-# Deploy agent (one time)
-python deployment/deploy.py --action deploy
-
-# Run backend locally (daily use)
-cd backend && python api_server.py
-```
-
-**👉 See detailed instructions below in [Deployment Options](#deployment-options)**
 
 ---
 
@@ -89,6 +39,7 @@ cd backend && python api_server.py
 ### For Cloud Deployment
 5. **Google Cloud Project** with billing enabled
 6. **gcloud CLI** - [Install](https://cloud.google.com/sdk/docs/install)
+7. **Windows Users**: Git Bash or WSL (Windows Subsystem for Linux) for running shell scripts
 
 ### Python Version Management
 
@@ -102,15 +53,25 @@ brew install pyenv
 # Linux
 curl https://pyenv.run | bash
 
-# Add to shell profile (~/.bashrc, ~/.zshrc)
+# Windows
+# Install pyenv-win via PowerShell (run as Administrator):
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+# Or install via chocolatey:
+choco install pyenv-win
+
+# Add to shell profile (~/.bashrc, ~/.zshrc on Mac/Linux; PowerShell profile on Windows)
+# macOS/Linux:
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Windows: pyenv-win installer adds to PATH automatically
+# Restart terminal after installation
 ```
 
 **Install Python 3.11.13:**
 ```bash
-# Install Python 3.11.13
+# Install Python 3.11.13 (all platforms)
 pyenv install 3.11.13
 
 # Set for this project
@@ -119,6 +80,10 @@ pyenv local 3.11.13
 
 # Verify
 python --version  # Should show: Python 3.11.13
+
+# Windows Note: If pyenv command not found, restart terminal or use:
+# pyenv-win install 3.11.13
+# pyenv-win local 3.11.13
 ```
 
 The project includes a `.python-version` file that automatically activates Python 3.11.13.
@@ -300,12 +265,10 @@ Interactive Jupyter notebooks to learn how to build multi-agent systems step by 
 
 ### 🎓 Workshop Learning Path
 
-1. **Part 1-2**: Foundations (1 hour) - Learn basic agent creation and custom tools
-2. **Part 3-6**: Advanced Patterns (2 hours) - Master agent coordination and workflows
-3. **Part 7**: Capstone Project (1 hour) - Build the complete system
-4. **Part 8**: Deployment (30 min) - Deploy to production on GCP
-
-**Total Workshop Time**: ~4.5 hours
+1. **Part 1-2**: Foundations - Learn basic agent creation and custom tools
+2. **Part 3-6**: Advanced Patterns - Master agent coordination and workflows
+3. **Part 7**: Capstone Project - Build the complete system
+4. **Part 8**: Deployment - Deploy to production on GCP
 
 💡 **Tip**: Each notebook is self-contained and can be run independently in Google Colab. No local setup required!
 
@@ -525,11 +488,22 @@ cd frontend && npm install
 
 **Issue: Port already in use**
 ```bash
-# Backend (port 8000)
+# macOS/Linux - Backend (port 8000)
 lsof -ti:8000 | xargs kill -9
 
-# Frontend (port 5173)
+# macOS/Linux - Frontend (port 5173)
 lsof -ti:5173 | xargs kill -9
+
+# Windows PowerShell - Backend (port 8000)
+Get-Process -Id (Get-NetTCPConnection -LocalPort 8000).OwningProcess | Stop-Process -Force
+
+# Windows PowerShell - Frontend (port 5173)
+Get-Process -Id (Get-NetTCPConnection -LocalPort 5173).OwningProcess | Stop-Process -Force
+
+# Windows CMD - Alternative
+netstat -ano | findstr :8000
+# Note the PID and kill it:
+taskkill /PID <PID> /F
 ```
 
 ---
