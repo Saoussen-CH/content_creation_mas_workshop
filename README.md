@@ -49,8 +49,62 @@ Interactive Jupyter notebooks to learn how to build multi-agent systems step by 
 
 ### For Cloud Deployment
 5. **Google Cloud Project** with billing enabled
-6. **gcloud CLI** - [Install](https://cloud.google.com/sdk/docs/install)
+6. **gcloud CLI** - Installation instructions below
 7. **Windows Users**: Git Bash or WSL (Windows Subsystem for Linux) for running shell scripts
+
+### Installing gcloud CLI
+
+**macOS:**
+```bash
+# Using Homebrew
+brew install --cask google-cloud-sdk
+
+# Or download installer from:
+# https://cloud.google.com/sdk/docs/install#mac
+```
+
+**Linux:**
+```bash
+# Debian/Ubuntu
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates gnupg
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update && sudo apt-get install google-cloud-cli
+
+# Or use the quick install script:
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+```
+
+**Windows:**
+```powershell
+# Download the installer:
+# https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe
+
+# Or install via Chocolatey:
+choco install gcloudsdk
+
+# Or install via PowerShell:
+(New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
+& $env:Temp\GoogleCloudSDKInstaller.exe
+
+#Link for intructions 
+https://docs.cloud.google.com/sdk/docs/install-sdk
+```
+
+**After installation (all platforms):**
+```bash
+# Initialize gcloud
+gcloud init
+
+# Authenticate
+gcloud auth login
+gcloud auth application-default login
+
+# Set your project
+gcloud config set project YOUR_PROJECT_ID
+```
 
 ### Python Version Management
 
