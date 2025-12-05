@@ -4,6 +4,23 @@
 
 An intelligent, multi-agent content creation system powered by Google's Gemini models. Built with a modern React frontend, FastAPI backend, and deployed on Google Cloud Platform using Agent Engine for scalable AI agent orchestration. This workshop demonstrates how to build and deploy production-ready AI agents using Google's Agent Development Kit (ADK) and Vertex AI Agent Engine.
 
+## 📓 Workshop Notebooks - Start Here!
+
+**New to AI agents?** Start with our interactive notebooks - no setup required, just click and learn!
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part1_first_agent.ipynb) **Part 1: First Agent** - Start here!
+
+| All Workshop Notebooks | |
+|------------------------|---|
+| 📝 [Part 1: First Agent](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part1_first_agent.ipynb) | 🔧 [Part 2: Custom Tools](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part2_custom_tools.ipynb) |
+| 👥 [Part 3: Agent Teams](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part3_agent_teams.ipynb) | 🔗 [Part 4: Sequential Workflows](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part4_sequential_workflows.ipynb) |
+| 🔄 [Part 5: Iterative Workflows](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part5_iterative_workflows.ipynb) | ⚡ [Part 6: Parallel Workflows](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part6_parallel_workflows.ipynb) |
+| 🎯 [Part 7: Capstone Project](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part7_capstone_project.ipynb) | ☁️ [Part 8: Deployment](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part8_deployment_agent_engine.ipynb) |
+
+**👉 See [full workshop details](#-workshop-notebooks) below for descriptions and learning path.**
+
+---
+
 ## 🚀 Quick Start & Deployment
 
 **🎯 New to this project?** Check out [**GETTING_STARTED.md**](GETTING_STARTED.md) for complete step-by-step instructions with 4 test prompts!
@@ -265,6 +282,32 @@ graph TB
 | **SEO Metadata Agent** | Worker | Generates meta descriptions and keywords |
 | **Content Analyzer Agent** | Worker | Analyzes text (readability, word count, hashtags) |
 | **Final Packager Agent** | Worker | Assembles and formats final deliverables |
+
+## 📓 Workshop Notebooks
+
+Interactive Jupyter notebooks to learn how to build multi-agent systems step by step. Click the badge to open directly in Google Colab:
+
+| Part | Topic | Description | Colab Link |
+|------|-------|-------------|------------|
+| 1 | First Agent | Create your first AI agent with Google ADK | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part1_first_agent.ipynb) |
+| 2 | Custom Tools | Build custom tools for your agents | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part2_custom_tools.ipynb) |
+| 3 | Agent Teams | Coordinate multiple agents working together | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part3_agent_teams.ipynb) |
+| 4 | Sequential Workflows | Chain agents in sequential pipelines | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part4_sequential_workflows.ipynb) |
+| 5 | Iterative Workflows | Create quality improvement loops | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part5_iterative_workflows.ipynb) |
+| 6 | Parallel Workflows | Execute agents in parallel for efficiency | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part6_parallel_workflows.ipynb) |
+| 7 | Capstone Project | Build the complete Content Creation Studio | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part7_capstone_project.ipynb) |
+| 8 | Deployment | Deploy agents to Agent Engine on GCP | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Saoussen-CH/content_creation_mas_workshop/blob/main/notebooks/part8_deployment_agent_engine.ipynb) |
+
+### 🎓 Workshop Learning Path
+
+1. **Part 1-2**: Foundations (1 hour) - Learn basic agent creation and custom tools
+2. **Part 3-6**: Advanced Patterns (2 hours) - Master agent coordination and workflows
+3. **Part 7**: Capstone Project (1 hour) - Build the complete system
+4. **Part 8**: Deployment (30 min) - Deploy to production on GCP
+
+**Total Workshop Time**: ~4.5 hours
+
+💡 **Tip**: Each notebook is self-contained and can be run independently in Google Colab. No local setup required!
 
 ## 🏠 Local Development Guide
 

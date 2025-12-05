@@ -41,14 +41,29 @@ python deploy.py
 
 - `setup_gcp.sh` - GCP environment setup
 - `deploy.py` - Deploy agent to Agent Engine
-- `deploy-cloudrun.sh` - Deploy frontend/backend to Cloud Run
+- `deploy-combined.sh` - Deploy frontend/backend to Cloud Run
+- `test_deployed_agent.py` - Test deployed agent
+- `cleanup_gcp.sh` - Shell script to clean up all GCP resources
+- `cleanup_gcp.py` - Python script for comprehensive cleanup
 - `SETUP_GUIDE.md` - Detailed manual setup guide
-- `cleanup.py` - Remove deployed resources
+- `CLEANUP_GUIDE.md` - Complete cleanup documentation
 
 ## 🧹 Cleanup
 
 ```bash
-python cleanup.py
+# Dry run to see what would be deleted
+python cleanup_gcp.py --dry-run --all
+
+# Delete core resources (Cloud Run, Agent Engine, Docker images)
+python cleanup_gcp.py
+
+# Delete ALL resources including service account and storage bucket
+python cleanup_gcp.py --all
+
+# Or use the shell script (interactive)
+./cleanup_gcp.sh
 ```
+
+For detailed cleanup instructions, see [CLEANUP_GUIDE.md](CLEANUP_GUIDE.md)
 
 For detailed documentation, see [SETUP_GUIDE.md](SETUP_GUIDE.md)
