@@ -1,0 +1,86 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+LICENSE
+docs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env.local
+.env.development
+.env.test
+.env.production.local
+
+# Notebooks
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Build artifacts (except frontend/dist which we need)
+*.pyc
+*.pyo
+
+# Deployment scripts (not needed in container)
+deployment/*.sh
+deployment/*.md
+deployment/deploy.py
+deployment/cleanup.py
+deployment/test_deployed_agent.py
+
+# Local development files
+run_agent.py
+api_server.py
+content_creation_studio/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Cloud Run specific files already in separate directories
+backend/Dockerfile
+frontend/Dockerfile
+frontend/nginx.conf

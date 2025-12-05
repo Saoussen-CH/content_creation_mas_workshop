@@ -1,0 +1,5 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-dotenv>=1.0.0
+google-cloud-aiplatform[agent_engines]>=1.112
+google-adk==1.19.0

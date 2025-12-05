@@ -1,0 +1,54 @@
+graph TB
+    Start([User Request]) --> Orchestrator[Master Orchestrator<br/>gemini-2.5-flash]
+
+    Orchestrator --> Coordinator[Content Creation<br/>Coordinator<br/>gemini-2.5-flash]
+
+    subgraph "Phase 1: Intake & Research"
+        Coordinator --> Intake[Intake Agent<br/>Parse Brief]
+        Intake --> Research[Topic Research Agent<br/>Find Trending Topics]
+    end
+
+    subgraph "Phase 2: Initial Draft"
+        Research --> Drafter[Content Drafter Agent<br/>Create Initial Draft]
+    end
+
+    subgraph "Phase 3: Quality Loop (Max 3 iterations)"
+        Drafter --> Quality{Quality Checker<br/>Score ≥ 70?}
+        Quality -->|No| Improver[Content Improver<br/>Refine Content]
+        Improver --> Quality
+        Quality -->|Yes| Approved[✅ Approved Content]
+    end
+
+    subgraph "Phase 4: Multi-Channel Generation (Parallel)"
+        Approved --> Blog[Blog Post Writer<br/>800-1200 words<br/>SEO optimized]
+        Approved --> Social[Social Media Creator<br/>LinkedIn, Twitter, Instagram<br/>Platform-specific]
+        Approved --> Email[Email Newsletter Writer<br/>Engaging emails<br/>Clear CTA]
+        Approved --> SEO[SEO Metadata Agent<br/>Meta tags & keywords<br/>5-10 keywords]
+    end
+
+    subgraph "Phase 5: Packaging"
+        Blog --> Packager[Final Packager Agent<br/>Assemble Deliverables]
+        Social --> Packager
+        Email --> Packager
+        SEO --> Packager
+    end
+
+    Packager --> Result([📦 Complete Content Package<br/>Delivered to User])
+
+    classDef orchestrator fill:#9c27b0,stroke:#333,stroke-width:3px,color:#fff
+    classDef coordinator fill:#ff6f00,stroke:#333,stroke-width:2px,color:#fff
+    classDef phase1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef phase2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef phase3 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef phase4 fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    classDef phase5 fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef endpoint fill:#ffd700,stroke:#333,stroke-width:3px,color:#000
+
+    class Orchestrator orchestrator
+    class Coordinator coordinator
+    class Intake,Research phase1
+    class Drafter phase2
+    class Quality,Improver,Approved phase3
+    class Blog,Social,Email,SEO phase4
+    class Packager phase5
+    class Start,Result endpoint

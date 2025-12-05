@@ -1,0 +1,22 @@
+# Content Creation Studio - Python Requirements
+# ==============================================
+# This file contains all Python dependencies for local development and deployment
+
+# Core Agent Development Kit
+google-cloud-aiplatform[agent_engines]>=1.112  # Vertex AI Platform with Agent Engine support
+google-adk==1.19.0  # Google Agent Development Kit (pinned for Agent Engine compatibility)
+
+# FastAPI Backend
+fastapi>=0.115.0  # Modern web framework for building APIs
+uvicorn[standard]>=0.32.0  # ASGI server for FastAPI
+python-dotenv>=1.0.0  # Environment variable management
+
+# Google Cloud Dependencies
+vertexai>=1.38.0  # Vertex AI SDK
+requests>=2.32.4  # HTTP library
+
+# Data Processing
+numpy>=1.24.0  # Numerical computing
+
+# Utilities
+click>=8.1.8  # CLI framework for deployment scripts

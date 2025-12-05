@@ -1,0 +1,55 @@
+graph TB
+    subgraph "User Interface"
+        Browser[Web Browser]
+    end
+
+    subgraph "Google Cloud Run"
+        subgraph "Combined Service (Port 8080)"
+            Frontend[React Frontend<br/>Static Files<br/>Vite + React 18]
+            Backend[FastAPI Backend<br/>API Server<br/>Python 3.11 + Uvicorn]
+            Frontend -.served by.-> Backend
+        end
+    end
+
+    subgraph "Google Cloud Platform"
+        subgraph "Vertex AI Agent Engine"
+            Orchestrator[Master Orchestrator<br/>Agent<br/>gemini-2.5-flash]
+            Coordinator[Content Creation<br/>Coordinator<br/>gemini-2.5-flash]
+            Analyzer[Content Analyzer<br/>Agent<br/>gemini-2.5-flash]
+
+            Orchestrator --> Coordinator
+            Orchestrator --> Analyzer
+        end
+
+        subgraph "Infrastructure"
+            AR[Artifact Registry<br/>Docker Images]
+            Storage[Cloud Storage<br/>Staging Bucket]
+            Logging[Cloud Logging<br/>& Monitoring]
+        end
+    end
+
+    subgraph "AI Models"
+        Gemini[Google Gemini 2.5 Flash<br/>via Vertex AI]
+    end
+
+    Browser -->|HTTPS| Frontend
+    Frontend -->|/api/*| Backend
+    Backend -->|RemoteRunner| Orchestrator
+    Coordinator -->|API Calls| Gemini
+    Analyzer -->|API Calls| Gemini
+
+    Backend -.logs.-> Logging
+    AR -.deploys.-> Backend
+    Coordinator -.stores.-> Storage
+
+    classDef frontend fill:#61dafb,stroke:#333,color:#000
+    classDef backend fill:#009688,stroke:#333,color:#fff
+    classDef agent fill:#ff6f00,stroke:#333,color:#fff
+    classDef infra fill:#4285f4,stroke:#333,color:#fff
+    classDef ai fill:#ea4335,stroke:#333,color:#fff
+
+    class Browser,Frontend frontend
+    class Backend backend
+    class Orchestrator,Coordinator,Analyzer agent
+    class AR,Storage,Logging infra
+    class Gemini ai
