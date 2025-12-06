@@ -162,8 +162,8 @@ GOOGLE_API_KEY=your_google_api_key_here
 GOOGLE_GENAI_USE_VERTEXAI=1
 
 # Agent Configuration
-WORKER_MODEL=gemini-2.0-flash-exp
-COORDINATOR_MODEL=gemini-2.0-flash-exp
+WORKER_MODEL=gemini-2.5-flash
+COORDINATOR_MODEL=gemini-2.5-flash
 QUALITY_SCORE_THRESHOLD=70
 MAX_IMPROVEMENT_ITERATIONS=3
 
