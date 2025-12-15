@@ -695,8 +695,6 @@ By completing this workshop, you will learn how to:
 - **[Deployment Overview](deployment/README.md)** - General deployment instructions
 - **[Combined Deployment Guide](deployment/COMBINED_DEPLOYMENT.md)** - Deploy frontend + backend as single service
 - **[Setup Guide](deployment/SETUP_GUIDE.md)** - Detailed GCP setup instructions
-- **[Docker Auth Fix](deployment/DOCKER_AUTH_FIX.md)** - Fix Docker authentication issues
-- **[Troubleshooting](deployment/TROUBLESHOOTING.md)** - Common issues and solutions
 
 ### Application Documentation
 - **[Frontend README](frontend/README.md)** - React app documentation
@@ -704,7 +702,6 @@ By completing this workshop, you will learn how to:
 
 ### External Resources
 - **[Google Agent SDK Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview)** - Official ADK docs
-- **[DevFest Fusion 4.0](https://devfest.gdgalgiers.com/)** - Event information
 
 ## 👥 Contributing
 
