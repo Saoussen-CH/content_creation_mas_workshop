@@ -696,9 +696,6 @@ By completing this workshop, you will learn how to:
 - **[Combined Deployment Guide](deployment/COMBINED_DEPLOYMENT.md)** - Deploy frontend + backend as single service
 - **[Setup Guide](deployment/SETUP_GUIDE.md)** - Detailed GCP setup instructions
 
-### Application Documentation
-- **[Frontend README](frontend/README.md)** - React app documentation
-- **[API Docs](http://localhost:8000/docs)** - Interactive API reference (when server running)
 
 ### External Resources
 - **[Google Agent SDK Documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview)** - Official ADK docs
