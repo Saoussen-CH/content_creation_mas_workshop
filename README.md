@@ -700,7 +700,7 @@ By completing this workshop, you will learn how to:
 
 ## 👥 Contributing
 
-This is a workshop project for DevFest Fusion 4.0. Feel free to:
+Feel free to:
 - Fork and experiment with the code
 - Submit issues for bugs or improvements
 - Share your enhanced versions
