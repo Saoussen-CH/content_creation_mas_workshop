@@ -1,7 +1,5 @@
 # Content Creation Studio
 
-**Workshop for DevFest Fusion 4.0**
-
 An intelligent, multi-agent content creation system powered by Google's Gemini models. Built with a modern React frontend, FastAPI backend, and deployed on Google Cloud Platform using Agent Engine for scalable AI agent orchestration. This workshop demonstrates how to build and deploy production-ready AI agents using Google's Agent Development Kit (ADK) and Vertex AI Agent Engine.
 
 ## 📓 Workshop Notebooks - Start Here!
